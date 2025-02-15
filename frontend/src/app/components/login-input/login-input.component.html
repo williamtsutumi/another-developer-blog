@@ -1,0 +1,18 @@
+<div class="form-group">
+    <label [for]="inputId" class="mt-2">{{label}} 
+        @if (required) {
+            <span style="color: red"> *</span>
+        }
+        <span style="color: red">
+            {{invalidMessage}}
+        </span>
+    </label>
+    <input
+        [type]="type"
+        class="form-control col-8 p-1"
+        [id]="inputId"
+        [placeholder]="placeholder"
+        [value]="value"
+        (input)="onInput($event)"
+    >
+</div>

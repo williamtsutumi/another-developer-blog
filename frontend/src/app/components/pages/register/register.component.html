@@ -1,0 +1,39 @@
+<app-login-layout>
+    <form [formGroup]="registerForm">
+        <h1>Faça seu cadastro</h1>
+
+        <app-login-input
+            formControlName="name"
+            type="text"
+            label="Nome"
+            inputId="name"
+            placeholder="Digite seu nome"
+            [required]="true"
+        >
+        </app-login-input>
+
+        <app-login-input
+            formControlName="email"
+            type="email"
+            label="E-mail"
+            inputId="email"
+            placeholder="Seu email"
+            [required]="true"
+            [invalidMessage]="emailLabel"
+        >
+        </app-login-input>
+
+        <app-login-input
+            formControlName="password"
+            type="password"
+            label="Senha"
+            inputId="password"
+            placeholder="Sua senha (no mínimo 6 caracteres)"
+            [required]="true"
+        >
+        </app-login-input>
+
+        <button type="submit" class="btn btn-success col-12 my-3" (click)="onSubmit()" [disabled]="registerForm.invalid">Cadastrar</button>
+        <p>Já possui conta? <a href="/login">Fazer login</a></p>
+    </form>
+</app-login-layout>

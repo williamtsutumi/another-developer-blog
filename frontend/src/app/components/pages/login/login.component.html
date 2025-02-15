@@ -1,0 +1,28 @@
+<app-login-layout>
+    <form [formGroup]="loginForm">
+        <h1>Faça seu login</h1>
+        
+        <app-login-input
+        formControlName="email"
+        type="email"
+        label="E-mail"
+        inputId="email"
+        placeholder="Seu email"
+        [required]="true"
+        >
+        </app-login-input>
+        
+        <app-login-input
+        formControlName="password"
+        type="password"
+        label="Senha"
+        inputId="password"
+        placeholder="Sua senha"
+        [required]="true"
+        >
+        </app-login-input>
+
+        <button type="submit" class="btn btn-success col-12 my-3" (click)="onSubmit()" [disabled]="loginForm.invalid">Entrar</button>
+        <p>Não possui conta? <a href="/register">Cadastre-se</a></p>
+    </form>
+</app-login-layout>
