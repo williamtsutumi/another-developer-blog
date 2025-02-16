@@ -1,0 +1,16 @@
+nav {
+    background-color: blue;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav > ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav > ul > li {
+    padding-right: 10px;
+    text-align: center;
+    
+}

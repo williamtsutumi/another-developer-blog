@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { HomeService } from '../../../tests/home.service';
 import { ToastrService } from 'ngx-toastr';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,12 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeComponent {
   private homeService = inject(HomeService);
   private toastService = inject(ToastrService);
+
+  constructor(
+    private titleService: Title
+  ) {
+    this.titleService.setTitle("Home");
+  }
 
   onSubmit() {
     this.homeService.sendRequest().subscribe({
