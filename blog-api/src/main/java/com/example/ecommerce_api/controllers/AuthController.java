@@ -25,9 +25,8 @@ public class AuthController {
     public ResponseEntity login(@RequestBody LoginRequestDTO body){
         User user = this.repository.findByEmail(body.email()).orElse(null);
 
-        if (user == null || !passwordEncoder.matches(body.password(), user.getPassword())) {
+        if (user == null || !passwordEncoder.matches(body.password(), user.getPassword()))
             return ResponseEntity.badRequest().body("E-mail e/ou senha incorretos!");
-        }
 
         String token = this.tokenService.generateToken(user);
         return ResponseEntity.ok(new ResponseDTO(user.getName(), token));
